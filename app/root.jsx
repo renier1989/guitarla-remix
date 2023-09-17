@@ -1,4 +1,4 @@
-import { Links, Meta } from "@remix-run/react";
+import { Links, Meta, Outlet } from "@remix-run/react";
 import styles from "./styles/index.css"
 
 export const meta = () => {
@@ -6,7 +6,7 @@ export const meta = () => {
     {
       viewport: "width=device-width,initial-scale=1",
     },
-    { title: "New Remix App" },
+    { title: "GuitarLA - Remix" },
     {
       charset: "charset",
     },
@@ -40,7 +40,9 @@ export function links(){
 }
 
 export default function App() {
-  return <Document>Desde la app</Document>;
+  return <Document>
+    <Outlet/>
+  </Document>;
 }
 
 function Document({ children }) {
