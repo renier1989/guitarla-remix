@@ -1,4 +1,5 @@
-import { Meta } from "@remix-run/react";
+import { Links, Meta } from "@remix-run/react";
+import styles from "./styles/index.css"
 
 export const meta = () => {
   return [
@@ -12,6 +13,15 @@ export const meta = () => {
   ];
 };
 
+export function links(){
+  return([
+    {
+      rel:"stylesheet",
+      href:styles
+    }
+  ]);
+}
+
 export default function App() {
   return <Document>Desde la app</Document>;
 }
@@ -21,6 +31,7 @@ function Document({ children }) {
     <html lang="es">
       <head>
         <Meta />
+        <Links/>
       </head>
       <body>{children}</body>
     </html>
