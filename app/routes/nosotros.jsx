@@ -1,3 +1,10 @@
+export function meta(){
+    return(
+        [
+            {title:'GuitarLA - Nosotros'}
+        ]
+    )
+}
 
 function Nosotros() {
   return (
