@@ -1,9 +1,8 @@
-// $2a$10$klP5caXmg/60/SJN3c8AuOjLzAD0jLJzI9xcD4vgTD7K87jLjQOJO
+import { getGuitarras } from '~/models/guitarras.server';
 
 export async function loader(){
-  const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`);
-  const resultado = await respuesta.json();
-  console.log(process.env.API_URL , resultado);
+  const guitarras = await getGuitarras();
+  console.log(guitarras);
   return {}
 }
 
