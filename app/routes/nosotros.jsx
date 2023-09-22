@@ -1,7 +1,20 @@
 import imagen from "../../public/img/nosotros.jpg";
-
+import styles from "~/styles/nosotros.css";
 export function meta() {
   return [{ title: "GuitarLA - Nosotros" }];
+}
+export function links(){
+  return[
+    {
+      rel: 'stylesheet',
+      href: styles,
+    },
+    {
+      rel: 'preload',
+      href: imagen,
+      as: 'image'
+    }
+  ]
 }
 
 function Nosotros() {
