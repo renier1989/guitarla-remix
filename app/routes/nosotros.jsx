@@ -1,15 +1,38 @@
-export function meta(){
-    return(
-        [
-            {title:'GuitarLA - Nosotros'}
-        ]
-    )
+import imagen from "../../public/img/nosotros.jpg";
+
+export function meta() {
+  return [{ title: "GuitarLA - Nosotros" }];
 }
 
 function Nosotros() {
   return (
-    <div>Pagina de Nosotros</div>
-  )
+    <main className="contenedor nosotros">
+      <h2>Nosotros</h2>
+      <div className="contenido">
+        <img src={imagen} alt="imagen de nosotros" />
+        <div>
+          <p>
+            Nam aliquet suscipit nunc ut facilisis. Morbi vehicula, quam id
+            lacinia dignissim, elit justo rutrum velit, accumsan consequat mi
+            odio ut nisl. Sed tincidunt, eros non varius fringilla, enim mauris
+            placerat lectus, vel rutrum odio dui a sem. Cras id nisi sit amet
+            risus sollicitudin sodales. Aenean aliquam elementum ipsum vitae
+            consectetur. Donec ultricies commodo orci. Vestibulum tempus turpis
+            non felis varius maximus.
+          </p>
+
+          <p>
+            Vivamus porta dignissim imperdiet. Morbi a tellus at est cursus
+            suscipit. Praesent mattis sed nunc in tempus. Praesent bibendum ex
+            nec porttitor rutrum. Nam rutrum molestie dui a tempus. Vestibulum
+            at eleifend nibh, nec sollicitudin elit. Nullam consectetur, lectus
+            eu sagittis efficitur, quam magna accumsan urna, in accumsan ipsum
+            augue et enim.
+          </p>
+        </div>
+      </div>
+    </main>
+  );
 }
 
-export default Nosotros
+export default Nosotros;
