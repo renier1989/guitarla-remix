@@ -19,6 +19,8 @@
     display: grid;
     grid-template-columns: repeat(2,3fr);
     gap: 1rem;
+    max-width: 70rem;
+    margin: 0 auto;
 }
 .guitarra .contenido {
     padding : 1rem;
