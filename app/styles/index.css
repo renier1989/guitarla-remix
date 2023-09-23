@@ -137,3 +137,17 @@ main {
     text-align: center;
     font-size: 1.8rem;
 }
+
+.error ,
+.error-enlace {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.error-enlace{
+    display: block;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 2rem;
+}
