@@ -10,7 +10,7 @@ export default function Post({ post }) {
         <h3>{titulo}</h3>
         <p className="fecha">{publishedAt}</p>
         <p className="resumen">{contenido}</p>
-        <Link className="posts-enlace" to={`posts/${url}`}>Ver Articulo</Link>
+        <Link className="enlace" to={`posts/${url}`}>Ver Articulo</Link>
       </div>
     </article>
   );

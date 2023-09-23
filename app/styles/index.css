@@ -151,3 +151,22 @@ main {
     text-decoration: none;
     font-size: 2rem;
 }
+
+.enlace{
+    margin-top: 3rem;
+    display: block;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 1rem;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 700;
+    transition-property: background-color;
+    transition-duration: 300ms;
+}
+.enlace:hover{
+    background-color: var(--primary);
+
+}
