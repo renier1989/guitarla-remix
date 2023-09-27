@@ -1,7 +1,6 @@
 import { useLoaderData } from "react-router";
 import {getPost} from "../models/posts.server"
 import {formatearFecha} from "../utils/helpers"
-import styles from "../styles/blogs.css"
 
 export async function loader({params}){
     const {postUrl} = params;
@@ -44,25 +43,17 @@ export function meta({data}){
     ]
 }
 
-export function links(){
-    return[
-        {
-            rel: "stylesheet",
-            href : styles
-        }
-    ]
-}
 
 export default function Post() {
     const post = useLoaderData();
     const {contenido, imagen, titulo, publishedAt} = post
     
   return (
-    <main className="post contenedor mt-3">
+    <div className="post mt-3">
         <img src={imagen?.data?.attributes?.url} alt={`Imagen del post ${titulo}`} />
         <h3 className="heading">{titulo}</h3>
         <p className="fecha">{formatearFecha(publishedAt)}</p>
         <p className="texto">{contenido}</p>
-    </main>
+    </div>
   )
 }
