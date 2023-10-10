@@ -43,7 +43,7 @@ export function links(){
 
 export default function App() {
   return <Document>
-    <Outlet/>
+    <Outlet context={{ guitarLa : 'guitarLa-context'}}/>
   </Document>;
 }
 
