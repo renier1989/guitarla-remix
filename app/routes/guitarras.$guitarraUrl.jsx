@@ -42,7 +42,7 @@ export function meta({data}){
 }
 
 function Guitarra() {
-  const data = useOutletContext();
+  const {agregarCarrito} = useOutletContext();
   const [cantidad, setCantidad] = useState(0);
   const guitarra = useLoaderData();
   const { nombre, descripcion, imagen, precio } = guitarra.data[0].attributes;
@@ -62,9 +62,9 @@ function Guitarra() {
       cantidad
     }
 
+    agregarCarrito(guitarraSeleccionada);
   }
-  
-  console.log('aqui. ',data);
+
 
   return (
     <div className="guitarra">

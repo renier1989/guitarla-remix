@@ -2,6 +2,7 @@ import { Link, Links, LiveReload, Meta, Outlet, Scripts, isRouteErrorResponse, u
 import styles from "~/styles/index.css"
 import Header from "~/components/header";
 import Footer from "./components/footer";
+import { useState } from "react";
 
 export const meta = () => {
   return [
@@ -42,8 +43,12 @@ export function links(){
 }
 
 export default function App() {
+  const [carrito , setCarrito]  = useState([]);
+  const agregarCarrito = (guitarra) =>{
+    setCarrito([...carrito, guitarra]);
+  }
   return <Document>
-    <Outlet context={{ guitarLa : 'guitarLa-context'}}/>
+    <Outlet context={{ agregarCarrito }}/>
   </Document>;
 }
 
