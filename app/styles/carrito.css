@@ -22,6 +22,15 @@
     top: 4rem;
 }
 
+.select{
+    all: unset;
+    border: 1px solid #cfcfcf;
+    text-align: center;
+    width: 100%;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
 .producto {
     display: grid;
     grid-template-columns: 1fr 3fr;

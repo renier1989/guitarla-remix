@@ -39,7 +39,15 @@ export default function Carrito() {
                   </div>
                   <div>
                     <p className="nombre">{producto.nombre}</p>
-                    <p className="cantidad"> Cantidad: {producto.cantidad}</p>
+                    {/* <p className="cantidad"> Cantidad: {producto.cantidad}</p> */}
+                    <p className="cantidad"> Cantidad:</p>
+                    <select value={producto.cantidad} className="select">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
                     <p className="precio">${producto.precio}</p>
                     <p className="subtotal">
                       Subtotal: ${producto.cantidad * producto.precio}
