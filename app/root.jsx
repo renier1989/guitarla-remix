@@ -65,7 +65,7 @@ export default function App() {
     
   }
   return <Document>
-    <Outlet context={{ agregarCarrito }}/>
+    <Outlet context={{ agregarCarrito, carrito }}/>
   </Document>;
 }
 
