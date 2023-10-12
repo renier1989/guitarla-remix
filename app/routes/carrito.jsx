@@ -20,7 +20,7 @@ export function links() {
 
 export default function Carrito() {
   const [total, setTotal] = useState(0);
-  const { carrito, actualizarCantidad } = useOutletContext();
+  const { carrito, actualizarCantidad, eliminarProducto } = useOutletContext();
   useEffect(() => {
     const calculoTotal = carrito.reduce((total, producto) => total + producto.cantidad * producto.precio, 0);
     setTotal(calculoTotal);
@@ -68,6 +68,9 @@ export default function Carrito() {
                       Subtotal: ${producto.cantidad * producto.precio}
                     </p>
                   </div>
+                  <button className="btn-eliminar" type="button" onClick={()=>eliminarProducto(producto.id)}>
+                    X
+                  </button>
                 </div>
               ))}
         </div>

@@ -82,9 +82,14 @@ export default function App() {
 
   };
 
+  const eliminarProducto = id => {
+    const carritoActulizado = carrito.filter(guitarraState => guitarraState.id !== id);
+    setCarrito(carritoActulizado);
+  }
+
   return (
     <Document>
-      <Outlet context={{ agregarCarrito, carrito, actualizarCantidad }} />
+      <Outlet context={{ agregarCarrito, carrito, actualizarCantidad, eliminarProducto }} />
     </Document>
   );
 }

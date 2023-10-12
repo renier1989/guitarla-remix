@@ -22,7 +22,7 @@
     top: 4rem;
 }
 
-.select{
+.select {
     all: unset;
     border: 1px solid #cfcfcf;
     text-align: center;
@@ -38,10 +38,11 @@
     align-items: center;
     padding: 0 3rem;
     border-bottom: 1px solid #cfcfcf;
+    position: relative;
 }
 
-.producto p{
-    margin: 0 0 1rem 0; 
+.producto p {
+    margin: 0 0 1rem 0;
 }
 
 .producto span {
@@ -67,4 +68,15 @@
 .subtotal {
     font-size: 2.2rem;
 
+}
+
+.btn-eliminar {
+    all:unset;
+    position: absolute;
+    top: 3rem;
+    right : 1rem;
+}
+
+.btn-eliminar:hover {
+    cursor: pointer;
 }
