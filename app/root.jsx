@@ -1,5 +1,14 @@
-import { Link, Links, LiveReload, Meta, Outlet, Scripts, isRouteErrorResponse, useRouteError } from "@remix-run/react";
-import styles from "~/styles/index.css"
+import {
+  Link,
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  isRouteErrorResponse,
+  useRouteError,
+} from "@remix-run/react";
+import styles from "~/styles/index.css";
 import Header from "~/components/header";
 import Footer from "./components/footer";
 import { useState } from "react";
@@ -16,57 +25,68 @@ export const meta = () => {
   ];
 };
 
-export function links(){
-  return([
+export function links() {
+  return [
     {
-      rel:"stylesheet",
-      href:"https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+      rel: "stylesheet",
+      href: "https://necolas.github.io/normalize.css/8.0.1/normalize.css",
     },
     {
       rel: "preconnect",
-      href:"https://fonts.googleapis.com"
+      href: "https://fonts.googleapis.com",
     },
     {
       rel: "preconnect",
-      href:"https://fonts.gstatic.com",
-      crossOrigin: "true"
+      href: "https://fonts.gstatic.com",
+      crossOrigin: "true",
     },
     {
       rel: "stylesheet",
-      href: "https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Outfit:wght@400;700;900&family=Poppins:wght@400;500;600;700;800&display=swap"
+      href: "https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Outfit:wght@400;700;900&family=Poppins:wght@400;500;600;700;800&display=swap",
     },
     {
-      rel:"stylesheet",
-      href:styles
-    }
-  ]);
+      rel: "stylesheet",
+      href: styles,
+    },
+  ];
 }
 
 export default function App() {
-  const [carrito , setCarrito]  = useState([]);
-  const agregarCarrito = (guitarra) =>{
-
-    
-
-    if(carrito.some(guitarraState => guitarraState.id === guitarra.id)){
-      console.log('ya existe este item en el carrito');
-      const carritoActualizado  = carrito.map(guitarraNewState => {
-        if(guitarraNewState.id === guitarra.id){
+  const [carrito, setCarrito] = useState([]);
+  const agregarCarrito = (guitarra) => {
+    if (carrito.some((guitarraState) => guitarraState.id === guitarra.id)) {
+      console.log("ya existe este item en el carrito");
+      const carritoActualizado = carrito.map((guitarraNewState) => {
+        if (guitarraNewState.id === guitarra.id) {
           // modifica la cantidad del item que ya esta en el carrito
           guitarraNewState.cantidad = guitarra.cantidad;
         }
         return guitarraNewState;
-      })
+      });
       setCarrito(carritoActualizado);
-    }else{
+    } else {
       setCarrito([...carrito, guitarra]);
     }
+  };
+
+  const actualizarCantidad = (guitarra) => {
     
-    
-  }
-  return <Document>
-    <Outlet context={{ agregarCarrito, carrito }}/>
-  </Document>;
+    const carritoActualizado = carrito.map(guitarraState =>{
+      if(guitarraState.id === guitarra.id){
+        guitarraState.cantidad = guitarra.cantidad;
+      }
+      return guitarraState;
+    });
+
+    setCarrito(carritoActualizado);
+
+  };
+
+  return (
+    <Document>
+      <Outlet context={{ agregarCarrito, carrito, actualizarCantidad }} />
+    </Document>
+  );
 }
 
 function Document({ children }) {
@@ -74,31 +94,34 @@ function Document({ children }) {
     <html lang="es">
       <head>
         <Meta />
-        <Links/>
+        <Links />
       </head>
       <body>
         <Header />
         {children}
-        <Footer/>
-        <Scripts/>
-        <LiveReload/>
-        </body>
+        <Footer />
+        <Scripts />
+        <LiveReload />
+      </body>
     </html>
   );
 }
 
-
 // MANEJO DE ERRORES
 
-export function ErrorBoundary(){
+export function ErrorBoundary() {
   const error = useRouteError();
   console.log(error);
-  if(isRouteErrorResponse(error)){   
+  if (isRouteErrorResponse(error)) {
     return (
       <Document>
-      <p className="error">{error.status} {error.statusText}</p>
-      <Link  to="/" className="error-enlace">Volver al inicio</Link>
-    </Document>
-  )
-}
+        <p className="error">
+          {error.status} {error.statusText}
+        </p>
+        <Link to="/" className="error-enlace">
+          Volver al inicio
+        </Link>
+      </Document>
+    );
+  }
 }

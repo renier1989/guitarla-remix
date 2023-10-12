@@ -58,9 +58,10 @@
     font-size: 4.2rem;
 }
 
-.precio {
+.producto .precio {
     font-weight: 700;
     color: var(--primary);
+    margin-top: 2rem;
 }
 
 .subtotal {
