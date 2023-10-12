@@ -54,15 +54,18 @@ export function links() {
 export default function App() {
 
 
-  const carritoLS = typeof window !== "undefined" ? JSON.parse(localStorage.getItem('carrito')) ?? [] : null;
-  const [carrito, setCarrito] = useState(carritoLS);
+  // const carritoLS = typeof window !== "undefined" ? JSON.parse(localStorage.getItem('carrito')) ?? [] : null;
+  const [carrito, setCarrito] = useState([]);
 
   useEffect(()=>{
-
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    console.log('localStorage');
-    
+    if(carrito.length === 0) return;
+    localStorage.setItem('carrito', JSON.stringify(carrito));    
   },[carrito]);
+
+  useEffect(()=>{
+    const carritoLS = JSON.parse(localStorage.getItem('carrito')?? []);
+    setCarrito(carritoLS);
+  },[])
 
 
   const agregarCarrito = (guitarra) => {
@@ -96,6 +99,7 @@ export default function App() {
 
   const eliminarProducto = id => {
     const carritoActulizado = carrito.filter(guitarraState => guitarraState.id !== id);
+    carritoActulizado.length === 0 && localStorage.setItem('carrito',[]);
     setCarrito(carritoActulizado);
   }
 

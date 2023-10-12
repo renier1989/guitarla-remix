@@ -21,12 +21,16 @@ export function links() {
 export default function Carrito() {
   const [total, setTotal] = useState(0);
   const { carrito, actualizarCantidad, eliminarProducto } = useOutletContext();
+
   useEffect(() => {
     const calculoTotal = carrito.reduce((total, producto) => total + producto.cantidad * producto.precio, 0);
     setTotal(calculoTotal);
   }, [carrito]);
 
+
+
   return (
+    
     <main className="contenedor">
       <h1 className="heading">Carrito de compras</h1>
       <div className="contenido">
@@ -80,5 +84,6 @@ export default function Carrito() {
         </aside>
       </div>
     </main>
+    
   );
 }
