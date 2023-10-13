@@ -8,7 +8,8 @@ export default function Post({ post }) {
       <img className="imagen" src={imagenP} alt={`Imagen del post ${titulo}`} />
       <div className="contenido">
         <h3>{titulo}</h3>
-        <p className="fecha">{formatearFecha(publishedAt)}</p>
+        <p className="fecha">{publishedAt}</p>
+        {/* <p className="fecha">{formatearFecha(publishedAt)}</p> */}
         <p className="resumen">{contenido}</p>
         <Link className="enlace" to={`/blog/${url}`}>Ver Articulo</Link>
       </div>

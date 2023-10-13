@@ -52,7 +52,8 @@ export default function Post() {
     <div className="post mt-3">
         <img src={imagen?.data?.attributes?.url} alt={`Imagen del post ${titulo}`} />
         <h3 className="heading">{titulo}</h3>
-        <p className="fecha">{formatearFecha(publishedAt)}</p>
+        <p className="fecha">{publishedAt}</p>
+        {/* <p className="fecha">{formatearFecha(publishedAt)}</p> */}
         <p className="texto">{contenido}</p>
     </div>
   )
